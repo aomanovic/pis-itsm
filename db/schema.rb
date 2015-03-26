@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326025325) do
+ActiveRecord::Schema.define(version: 20150326095717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hardware_elements", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "hardware_elements", ["code"], name: "index_hardware_elements_on_code", unique: true, using: :btree
+
+  create_table "it_processes", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "it_processes", ["code"], name: "index_it_processes_on_code", unique: true, using: :btree
+
+  create_table "software_elements", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "software_elements", ["code"], name: "index_software_elements_on_code", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
