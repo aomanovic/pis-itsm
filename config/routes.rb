@@ -9,11 +9,6 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  get 'show'    => 'it_processes#show'
-  get 'all'     => 'it_processes#all'
-  get 'new'   => 'it_processes#new'
-  post 'create' => 'it_processes#create'
-
 
 
   resources :users
