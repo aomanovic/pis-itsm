@@ -45,3 +45,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt-ruby', '~> 3.1.5'
 
 gem 'bootstrap-sass', '~> 3.3.4.1'
+
+gem 'rails_12factor', group: :production
+gem 'puma', '~> 2.11.1'
