@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326095717) do
+ActiveRecord::Schema.define(version: 20150326184703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20150326095717) do
 
   add_index "hardware_elements", ["code"], name: "index_hardware_elements_on_code", unique: true, using: :btree
 
+  create_table "incidents", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "user"
+    t.string   "new"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "it_processes", force: :cascade do |t|
     t.integer  "code"
     t.string   "name"
@@ -35,6 +44,23 @@ ActiveRecord::Schema.define(version: 20150326095717) do
   end
 
   add_index "it_processes", ["code"], name: "index_it_processes_on_code", unique: true, using: :btree
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "new"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "risks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "priority"
+    t.string   "new"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "software_elements", force: :cascade do |t|
     t.integer  "code"
