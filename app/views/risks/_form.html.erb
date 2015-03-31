@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for(@risk) do |f| %>
+  <% if @risk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@risk.errors.count, "error") %> prohibited this risk from being saved:</h2>
+
+      <ul>
+      <% @risk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description, class: 'form-control' %>
+
+        <%= f.label :possibility %>
+        <%= f.number_field :possibility, class: 'form-control' %>
+
+        <%= f.label :it_process %>
+        <%= f.number_field :it_process, class: 'form-control' %>
+
+        <%= f.submit "Create risk", class: "btn btn-primary" %>
+<% end %>
+  </div>
+</div>
+

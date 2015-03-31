@@ -1,5 +1,4 @@
 class Risk < ActiveRecord::Base
-  belongs_to :it_processes
-  has_one :plan
+  belongs_to :it_process
   has_many :incidents
 end

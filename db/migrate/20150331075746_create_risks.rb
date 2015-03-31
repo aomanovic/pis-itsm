@@ -3,8 +3,8 @@ class CreateRisks < ActiveRecord::Migration
     create_table :risks do |t|
       t.string :name
       t.string :description
-      t.integer :priority
-      t.string :new
+      t.integer :possibility
+      t.integer :it_process
 
       t.timestamps null: false
     end

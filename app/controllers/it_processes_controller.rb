@@ -1,13 +1,10 @@
 class ItProcessesController < ApplicationController
-  before_action :set_it_process, only: [:show, :edit]
-  before_filter :is_logged
-
-
+  before_action :set_it_process, only: [:show, :edit, :update, :destroy]
 
   # GET /it_processes
   # GET /it_processes.json
   def index
-    @it_process = ItProcess.all
+    @it_processes = ItProcess.all
   end
 
   # GET /it_processes/1
@@ -24,7 +21,6 @@ class ItProcessesController < ApplicationController
   def edit
   end
 
-
   # POST /it_processes
   # POST /it_processes.json
   def create
@@ -32,7 +28,7 @@ class ItProcessesController < ApplicationController
 
     respond_to do |format|
       if @it_process.save
-        format.html { redirect_to @it_process, notice: 'Process was successfully created.' }
+        format.html { redirect_to @it_process, notice: 'It process was successfully created.' }
         format.json { render :show, status: :created, location: @it_process }
       else
         format.html { render :new }
@@ -41,40 +37,38 @@ class ItProcessesController < ApplicationController
     end
   end
 
-  # # PATCH/PUT /it_processes/1
-  # # PATCH/PUT /it_processes/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @it_process.update(it_process_params)
-  #       format.html { redirect_to @it_process, notice: 'Process was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @it_process }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @it_process.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
-  # # DELETE /it_processes/1
-  # # DELETE /it_processes/1.json
-  # def destroy
-  #   @it_process.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to it_processes_url, notice: 'Process was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  # PATCH/PUT /it_processes/1
+  # PATCH/PUT /it_processes/1.json
+  def update
+    respond_to do |format|
+      if @it_process.update(it_process_params)
+        format.html { redirect_to @it_process, notice: 'It process was successfully updated.' }
+        format.json { render :show, status: :ok, location: @it_process }
+      else
+        format.html { render :edit }
+        format.json { render json: @it_process.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-
+  # DELETE /it_processes/1
+  # DELETE /it_processes/1.json
+  def destroy
+    @it_process.destroy
+    respond_to do |format|
+      format.html { redirect_to it_processes_url, notice: 'It process was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_it_process
-    @it_process = ItProcess.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_it_process
+      @it_process = ItProcess.find(params[:id])
+    end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def it_process_params
-    params.require(:it_process).permit(:code, :name, :description)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def it_process_params
+      params.require(:it_process).permit(:name, :description, :importance, :business_process)
+    end
 end

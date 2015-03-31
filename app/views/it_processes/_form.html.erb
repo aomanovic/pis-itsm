@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for(@it_process) do |f| %>
+  <% if @it_process.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@it_process.errors.count, "error") %> prohibited this it_process from being saved:</h2>
+
+      <ul>
+      <% @it_process.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description, class: 'form-control' %>
+
+        <%= f.label :importance %>
+        <%= f.number_field :importance, class: 'form-control' %>
+
+        <%= f.label :business_process %>
+        <%= f.number_field :business_process, class: 'form-control' %>
+
+        <%= f.submit "Create IT process", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

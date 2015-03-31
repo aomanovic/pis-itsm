@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326184703) do
+ActiveRecord::Schema.define(version: 20150331090024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "business_processes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "hardware_elements", force: :cascade do |t|
     t.integer  "code"
@@ -36,28 +43,27 @@ ActiveRecord::Schema.define(version: 20150326184703) do
   end
 
   create_table "it_processes", force: :cascade do |t|
-    t.integer  "code"
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "importance"
+    t.integer  "business_process"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
-
-  add_index "it_processes", ["code"], name: "index_it_processes_on_code", unique: true, using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
-    t.string   "new"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "steps"
+    t.string   "estimation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "risks", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "priority"
-    t.string   "new"
+    t.integer  "possibility"
+    t.integer  "it_process"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

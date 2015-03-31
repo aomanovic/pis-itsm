@@ -1,16 +1,24 @@
-<% provide(:title,  @it_process.name) %>
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= yield(:title) %> |ITSM App</title>
-</head>
-<body>
-<h1><%= @it_process.name %></h1>
+<p id="notice"><%= notice %></p>
 
-<h1><%= @it_process.code %></h1>
+<p>
+  <strong>Name:</strong>
+  <%= @it_process.name %>
+</p>
 
-<h1><%= @it_process.description %></h1>
+<p>
+  <strong>Description:</strong>
+  <%= @it_process.description %>
+</p>
 
+<p>
+  <strong>Importance:</strong>
+  <%= @it_process.importance %>
+</p>
 
-</body>
-</html>
+<p>
+  <strong>Business process:</strong>
+  <%= @it_process.business_process %>
+</p>
+
+<%= link_to 'Edit', edit_it_process_path(@it_process) %> |
+<%= link_to 'Back', it_processes_path %>

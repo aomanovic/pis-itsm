@@ -1,20 +1,5 @@
-<% provide(:title, 'Create IT Process') %>
-<h1>Create IT Process</h1>
+<h1>New It Process</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@it_process) do |f| %>
+<%= render 'form' %>
 
-        <%= f.label :code %>
-        <%= f.text_field :code, class: 'form-control' %>
-
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-
-        <%= f.label :description %>
-        <%= f.text_field :description, class: 'form-control' %>
-
-        <%= f.submit "Create IT process", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= link_to 'Back', it_processes_path %>

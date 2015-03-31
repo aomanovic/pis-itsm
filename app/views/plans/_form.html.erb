@@ -1,0 +1,31 @@
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for(@plan) do |f| %>
+  <% if @plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+      <% @plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :steps %>
+    <%= f.text_field :steps, class: 'form-control' %>
+
+    <%= f.label :estimation %>
+    <%= f.text_field :estimation, class: 'form-control' %>
+
+    <%= f.submit "Create plan", class: "btn btn-primary" %>
+<% end %>
+
+  </div>
+</div>

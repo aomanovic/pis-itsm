@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_for(@business_process) do |f| %>
   <% if @business_process.errors.any? %>
     <div id="error_explanation">
@@ -11,15 +13,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description, class: 'form-control' %>
+
+        <%= f.submit "Create Business process", class: "btn btn-primary" %>
 <% end %>
+</div>
+    </div>
+

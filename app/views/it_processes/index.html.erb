@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing It Processes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Importance</th>
+      <th>Business process</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @it_processes.each do |it_process| %>
+      <tr>
+        <td><%= it_process.name %></td>
+        <td><%= it_process.description %></td>
+        <td><%= it_process.importance %></td>
+        <td><%= it_process.business_process %></td>
+        <td><%= link_to 'Show', it_process %></td>
+        <td><%= link_to 'Edit', edit_it_process_path(it_process) %></td>
+        <td><%= link_to 'Destroy', it_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New It process', new_it_process_path %>
