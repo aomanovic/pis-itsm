@@ -2,12 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  resources :it_processes
-
-  resources :risks
-
-  resources :plans
-
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
@@ -21,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :it_processes
+  resources :risks
+  resources :plans
   resources :business_processes
   resources :hardware_elements
   resources :software_elements
