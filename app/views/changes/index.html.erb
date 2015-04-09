@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plan</th>
+      <th>Change request</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @changes.each do |change| %>
+  <% if change.change_request.authorization.authorized? %>
+      <tr>
+        <td><%= change.plan %></td>
+        <td><%= change.change_request %></td>
+        <td><%= change.comment %></td>
+        <td><%= link_to 'Show', change %></td>
+        <td><%= link_to 'Edit', edit_change_path(change) %></td>
+        <td><%= link_to 'Destroy', change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Change', new_change_path %>

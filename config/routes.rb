@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 
 
+  resources :change_evaluations
+
+  resources :changes
+
+  resources :authorizations
+
+  resources :change_requests
+
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'

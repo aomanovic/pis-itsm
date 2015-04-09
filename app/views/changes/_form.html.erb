@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for(@change) do |f| %>
+  <% if @change.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@change.errors.count, "error") %> prohibited this change from being saved:</h2>
+
+      <ul>
+      <% @change.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%= f.label :plan %><br>
+    <%= f.text_field :plan, class: 'form-control' %>
+
+    <%= f.label :change_request %><br>
+    <%= f.number_field :change_request, class: 'form-control' %>
+
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment, class: 'form-control' %>
+
+        <%= f.submit "Create change", class: "btn btn-primary" %>
+
+<% end %>
+  </div>
+</div>
+

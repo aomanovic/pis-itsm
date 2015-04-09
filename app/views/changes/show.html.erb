@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plan:</strong>
+  <%= @change.plan %>
+</p>
+
+<p>
+  <strong>Change request:</strong>
+  <%= @change.change_request %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @change.comment %>
+</p>
+
+<%= link_to 'Edit', edit_change_path(@change) %> |
+<%= link_to 'Back', changes_path %>

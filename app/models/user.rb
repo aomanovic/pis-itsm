@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
+  has_many :change_requests
   before_save { self.email = email.downcase, self.username = username.downcase }
   validates :name, presence: true, length: {maximum: 50}
   validates :username, presence: true, length: {maximum: 20},uniqueness: { case_sensitive: false }

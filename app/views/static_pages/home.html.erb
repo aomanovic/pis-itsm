@@ -1,19 +1,12 @@
 <div class="center jumbotron">
-  <h1>Welcome to the ITSM app</h1>
+  <h1>Dobrodošli na stranicu IT ITIL SUPPORT</h1>
 
   <h2>
-    This is the home page for the ITSM application
+    Ovo je početna stranica aplikacije
   </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" if session[:user_id].nil? %>
 
-  <%= link_to "Create business process!", new_business_process_path, class: "btn btn-lg btn-primary"  if !session[:user_id].nil? %>
-
-  <%= link_to "Create IT process!", new_it_process_path, class: "btn btn-lg btn-primary"  if !session[:user_id].nil? %>
-
-  <%= link_to "Create risk!", new_risk_path, class: "btn btn-lg btn-primary"  if !session[:user_id].nil? %>
-
-  <%= link_to "Create plan!", new_plan_path, class: "btn btn-lg btn-primary"  if !session[:user_id].nil? %>
 
 </div>
 

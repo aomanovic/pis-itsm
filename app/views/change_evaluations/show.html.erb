@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @change_evaluation.rate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @change_evaluation.description %>
+</p>
+
+<p>
+  <strong>Change request:</strong>
+  <%= @change_evaluation.change_request %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @change_evaluation.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_change_evaluation_path(@change_evaluation) %> |
+<%= link_to 'Back', change_evaluations_path %>
