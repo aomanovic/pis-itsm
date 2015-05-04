@@ -69,6 +69,6 @@ class ChangeRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def change_request_params
-      params.require(:change_request).permit(:name, :description, :user_id)
+      params.require(:change_request).permit(:name, :description,:priority, :user_id)
     end
 end
