@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  resources :istrazivanjes
+
+  resources :problems
+
   resources :change_evaluations
 
   resources :changes

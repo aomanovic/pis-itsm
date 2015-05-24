@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @problem.naziv %>
+</p>
+
+<p>
+  <strong>Opis:</strong>
+  <%= @problem.opis %>
+</p>
+
+<p>
+  <strong>Kategorija:</strong>
+  <%= @problem.kategorija %>
+</p>
+
+<p>
+  <strong>Prioritet:</strong>
+  <%= @problem.prioritet %>
+</p>
+
+<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<%= link_to 'Nazad', problems_path %>

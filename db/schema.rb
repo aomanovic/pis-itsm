@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504184609) do
+ActiveRecord::Schema.define(version: 20150524204033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,18 @@ ActiveRecord::Schema.define(version: 20150504184609) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "istrazivanjes", force: :cascade do |t|
+    t.string   "klasa"
+    t.text     "komentar"
+    t.boolean  "potreban_zahtjev"
+    t.integer  "problem_id"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "promjena",         default: "Default promjena"
+  end
+
+  add_index "istrazivanjes", ["problem_id"], name: "index_istrazivanjes_on_problem_id", using: :btree
+
   create_table "it_processes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -90,6 +102,15 @@ ActiveRecord::Schema.define(version: 20150504184609) do
     t.string   "name"
     t.string   "steps"
     t.string   "estimation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.string   "naziv"
+    t.string   "opis"
+    t.text     "kategorija"
+    t.string   "prioritet"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -125,4 +146,5 @@ ActiveRecord::Schema.define(version: 20150504184609) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "istrazivanjes", "problems"
 end

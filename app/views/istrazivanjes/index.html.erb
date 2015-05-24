@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista istrazivanja </h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Klasa</th>
+      <th>Komentar</th>
+      <th>Potreban zahtjev</th>
+      <th>Problem</th>
+      <th>Promjena</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @istrazivanjes.each do |istrazivanje| %>
+      <tr>
+        <td><%= istrazivanje.klasa %></td>
+        <td><%= istrazivanje.komentar %></td>
+        <td><%= istrazivanje.potreban_zahtjev %></td>
+        <td><%= istrazivanje.problem.naziv %></td>
+        <td><%= istrazivanje.promjena %></td>
+        <td><%= link_to 'Show', istrazivanje %></td>
+        <td><%= link_to 'Edit', edit_istrazivanje_path(istrazivanje) %></td>
+        <td><%= link_to 'Destroy', istrazivanje, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Istrazivanje', new_istrazivanje_path %>

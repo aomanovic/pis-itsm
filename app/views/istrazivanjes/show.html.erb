@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Klasa:</strong>
+  <%= @istrazivanje.klasa %>
+</p>
+
+<p>
+  <strong>Komentar:</strong>
+  <%= @istrazivanje.komentar %>
+</p>
+
+<p>
+  <strong>Potreban zahtjev:</strong>
+  <%= @istrazivanje.potreban_zahtjev %>
+</p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @istrazivanje.problem.naziv %>
+</p>
+
+<%= link_to 'Edit', edit_istrazivanje_path(@istrazivanje) %> |
+<%= link_to 'Back', istrazivanjes_path %>

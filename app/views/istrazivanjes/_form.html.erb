@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@istrazivanje) do |f| %>
+        <% if @istrazivanje.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@istrazivanje.errors.count, "error") %> prohibited this istrazivanje from being saved:</h2>
+
+              <ul>
+                <% @istrazivanje.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+
+        <%= f.label :klasa %> <br>
+        <%= f.text_field :klasa, class: 'form-control' %>
+
+        <%= f.label :komentar %><br>
+        <%= f.text_area :komentar, class: 'form-control' %>
+
+        <%= f.label :Problem %><br>
+        <%= f.select :problem_id, options_from_collection_for_select(@problems, 'id', 'naziv'), class: 'form-control'%>
+
+        <%= f.label :potreban_zahtjev %>
+        <%= f.check_box :potreban_zahtjev, class: 'form-control' %><br>
+
+        <%= f.submit "Kreiraj", class: "btn btn-primary" %>
+
+    <% end %>
+  </div>
+</div>
+
+
