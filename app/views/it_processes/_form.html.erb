@@ -22,8 +22,8 @@
         <%= f.label :importance %>
         <%= f.number_field :importance, class: 'form-control' %>
 
-        <%= f.label :business_process %>
-        <%= f.number_field :business_process, class: 'form-control' %>
+        <%= f.label :business_process %><br>
+        <%= f.select :business_process_id, options_from_collection_for_select(@business_processes, 'id', 'name'), class: 'form-control'%>
 
         <%= f.submit "Create IT process", class: "btn btn-primary" %>
     <% end %>

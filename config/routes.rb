@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  resources :risks
+
+  resources :it_processes
+
   resources :istrazivanjes
 
   resources :problems

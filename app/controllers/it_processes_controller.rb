@@ -14,6 +14,7 @@ class ItProcessesController < ApplicationController
 
   # GET /it_processes/new
   def new
+    @business_processes = BusinessProcess.all
     @it_process = ItProcess.new
   end
 
@@ -69,6 +70,6 @@ class ItProcessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def it_process_params
-      params.require(:it_process).permit(:name, :description, :importance, :business_process)
+      params.require(:it_process).permit(:name, :description, :importance, :business_process_id)
     end
 end

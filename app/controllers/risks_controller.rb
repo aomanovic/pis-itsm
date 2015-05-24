@@ -14,6 +14,7 @@ class RisksController < ApplicationController
 
   # GET /risks/new
   def new
+    @it_processes = ItProcess.all
     @risk = Risk.new
   end
 
@@ -69,6 +70,6 @@ class RisksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def risk_params
-      params.require(:risk).permit(:name, :description, :possibility, :it_process)
+      params.require(:risk).permit(:name, :description, :possibility, :it_process_id)
     end
 end

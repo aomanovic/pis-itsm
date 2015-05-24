@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524204033) do
+ActiveRecord::Schema.define(version: 20150524222816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,12 +91,14 @@ ActiveRecord::Schema.define(version: 20150524204033) do
 
   create_table "it_processes", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.integer  "importance"
-    t.integer  "business_process"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "business_process_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
+
+  add_index "it_processes", ["business_process_id"], name: "index_it_processes_on_business_process_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
@@ -117,12 +119,14 @@ ActiveRecord::Schema.define(version: 20150524204033) do
 
   create_table "risks", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.integer  "possibility"
-    t.integer  "it_process"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "it_process_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
+
+  add_index "risks", ["it_process_id"], name: "index_risks_on_it_process_id", using: :btree
 
   create_table "software_elements", force: :cascade do |t|
     t.integer  "code"
@@ -147,4 +151,6 @@ ActiveRecord::Schema.define(version: 20150524204033) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "istrazivanjes", "problems"
+  add_foreign_key "it_processes", "business_processes"
+  add_foreign_key "risks", "it_processes"
 end
