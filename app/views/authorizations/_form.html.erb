@@ -14,12 +14,11 @@
   <% end %>
 
 
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id, class: 'form-control' %>
+        <%= f.label :change_request %><br>
+        <%= f.select :change_request_id, options_from_collection_for_select(@change_requests, 'id', 'name'), class: 'form-control'%>
 
-
-    <%= f.label :change_request_id %><br>
-    <%= f.number_field :change_request_id, class: 'form-control' %>
+        <%= f.label :User %><br>
+        <%= f.select :user_id, options_from_collection_for_select(@users, 'id', 'name'), class: 'form-control'%>
 
 
     <%= f.label :authorized %>
@@ -28,6 +27,7 @@
 
     <%= f.label :comment %><br>
     <%= f.text_area :comment, class: 'form-control' %>
+
     <%= f.submit "Kreiraj", class: "btn btn-primary" %>
 
 <% end %>

@@ -2,7 +2,7 @@
 
 <h1>Listing Authorizations</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>User</th>
@@ -16,8 +16,8 @@
   <tbody>
     <% @authorizations.each do |authorization| %>
       <tr>
-        <td><%= authorization.user_id %></td>
-        <td><%= authorization.change_request_id %></td>
+        <td><%= authorization.user.name %></td>
+        <td><%= authorization.change_request.name %></td>
         <td><%= authorization.authorized %></td>
         <td><%= authorization.comment %></td>
         <td><%= link_to 'Show', authorization %></td>

@@ -3,9 +3,11 @@ class CreateChangeRequests < ActiveRecord::Migration
     create_table :change_requests do |t|
       t.string :name
       t.text :description
-      t.integer :user_id
+      t.string :priority
+      t.references :user, index: true
 
       t.timestamps null: false
     end
+    add_foreign_key :change_requests, :users
   end
 end

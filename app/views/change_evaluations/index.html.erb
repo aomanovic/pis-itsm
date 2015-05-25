@@ -2,7 +2,7 @@
 
 <h1>Listing Change Evaluations</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Rate</th>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= change_evaluation.rate %></td>
         <td><%= change_evaluation.description %></td>
-        <td><%= change_evaluation.change_request %></td>
-        <td><%= change_evaluation.user_id %></td>
+        <td><%= change_evaluation.change_request.name %></td>
+        <td><%= change_evaluation.user.name %></td>
         <td><%= link_to 'Show', change_evaluation %></td>
         <td><%= link_to 'Edit', edit_change_evaluation_path(change_evaluation) %></td>
         <td><%= link_to 'Destroy', change_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

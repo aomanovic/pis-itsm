@@ -14,6 +14,7 @@ class ChangeRequestsController < ApplicationController
 
   # GET /change_requests/new
   def new
+    @users = User.all
     @change_request = ChangeRequest.new
   end
 
@@ -69,6 +70,6 @@ class ChangeRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def change_request_params
-      params.require(:change_request).permit(:name, :description,:priority, :user_id)
+      params.require(:change_request).permit(:name, :description, :priority, :user_id)
     end
 end

@@ -14,6 +14,8 @@ class AuthorizationsController < ApplicationController
 
   # GET /authorizations/new
   def new
+    @users = User.all
+    @change_requests = ChangeRequest.all
     @authorization = Authorization.new
   end
 

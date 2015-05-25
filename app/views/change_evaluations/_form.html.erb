@@ -21,10 +21,10 @@
     <%= f.text_area :description, class: 'form-control' %>
 
     <%= f.label :change_request %><br>
-    <%= f.number_field :change_request, class: 'form-control' %>
+    <%= f.select :change_request_id, options_from_collection_for_select(@change_requests, 'id', 'name'), class: 'form-control'%>
 
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id, class: 'form-control' %>
+    <%= f.label :User %><br>
+    <%= f.select :user_id, options_from_collection_for_select(@users, 'id', 'name'), class: 'form-control'%>
 
     <%= f.submit "Kreiraj", class: "btn btn-primary" %>
 

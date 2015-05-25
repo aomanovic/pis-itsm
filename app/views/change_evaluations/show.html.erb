@@ -12,12 +12,12 @@
 
 <p>
   <strong>Change request:</strong>
-  <%= @change_evaluation.change_request %>
+  <%= @change_evaluation.change_request.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @change_evaluation.user_id %>
+  <%= @change_evaluation.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_change_evaluation_path(@change_evaluation) %> |

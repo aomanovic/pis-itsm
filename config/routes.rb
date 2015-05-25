@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
 
 
+  resources :authorizations
+
+  resources :change_evaluations
+
+  resources :change_requests
+
   resources :risks
 
   resources :it_processes
@@ -10,13 +16,7 @@ Rails.application.routes.draw do
 
   resources :problems
 
-  resources :change_evaluations
-
   resources :changes
-
-  resources :authorizations
-
-  resources :change_requests
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'

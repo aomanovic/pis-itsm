@@ -23,10 +23,10 @@
     <%= f.label :Prioritet %><br>
     <%= f.select :priority, options_for_select([ "Low", "Medium", "High", "Urgent" ], "Medium")%>
 
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id, class: 'form-control' %>
+    <%= f.label :User %><br>
+    <%= f.select :user_id, options_from_collection_for_select(@users, 'id', 'name'), class: 'form-control'%>
 
-        <%= f.submit "Kreiraj", class: "btn btn-primary" %>
+    <%= f.submit "Kreiraj", class: "btn btn-primary" %>
 
     <% end %>
   </div>

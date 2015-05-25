@@ -14,6 +14,8 @@ class ChangeEvaluationsController < ApplicationController
 
   # GET /change_evaluations/new
   def new
+    @users = User.all
+    @change_requests = ChangeRequest.all
     @change_evaluation = ChangeEvaluation.new
   end
 
@@ -69,6 +71,6 @@ class ChangeEvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def change_evaluation_params
-      params.require(:change_evaluation).permit(:rate, :description, :change_request, :user_id)
+      params.require(:change_evaluation).permit(:rate, :description, :change_request_id, :user_id)
     end
 end

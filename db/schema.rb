@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524222816) do
+ActiveRecord::Schema.define(version: 20150525085458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20150524222816) do
     t.datetime "updated_at",        null: false
   end
 
+  add_index "authorizations", ["change_request_id"], name: "index_authorizations_on_change_request_id", using: :btree
+  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
+
   create_table "business_processes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -35,20 +38,25 @@ ActiveRecord::Schema.define(version: 20150524222816) do
   create_table "change_evaluations", force: :cascade do |t|
     t.integer  "rate"
     t.text     "description"
-    t.integer  "change_request"
+    t.integer  "change_request_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
+
+  add_index "change_evaluations", ["change_request_id"], name: "index_change_evaluations_on_change_request_id", using: :btree
+  add_index "change_evaluations", ["user_id"], name: "index_change_evaluations_on_user_id", using: :btree
 
   create_table "change_requests", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "priority"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "priority"
   end
+
+  add_index "change_requests", ["user_id"], name: "index_change_requests_on_user_id", using: :btree
 
   create_table "changes", force: :cascade do |t|
     t.string   "plan"
@@ -150,6 +158,11 @@ ActiveRecord::Schema.define(version: 20150524222816) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "authorizations", "change_requests"
+  add_foreign_key "authorizations", "users"
+  add_foreign_key "change_evaluations", "change_requests"
+  add_foreign_key "change_evaluations", "users"
+  add_foreign_key "change_requests", "users"
   add_foreign_key "istrazivanjes", "problems"
   add_foreign_key "it_processes", "business_processes"
   add_foreign_key "risks", "it_processes"

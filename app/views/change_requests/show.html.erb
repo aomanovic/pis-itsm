@@ -17,10 +17,8 @@
 
 <p>
   <strong>User:</strong>
-  <%= @change_request.user_id %>
+  <%= @change_request.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_change_request_path(@change_request) %> |
 <%= link_to 'Back', change_requests_path %>
-
-
