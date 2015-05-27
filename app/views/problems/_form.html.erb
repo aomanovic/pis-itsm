@@ -14,19 +14,19 @@
         <% end %>
 
 
-        <%= f.label :Naziv %> <br>
+        <%= f.label :Name %> <br>
         <%= f.text_field :naziv, class: 'form-control' %>
 
-        <%= f.label :Opis %><br>
+        <%= f.label :Description %><br>
         <%= f.text_area :opis, class: 'form-control' %>
 
-        <%= f.label :Kategorija %><br>
+        <%= f.label :Category %><br>
         <%= f.text_field :kategorija, class: 'form-control' %>
 
-        <%= f.label :Prioritet %><br>
+        <%= f.label :Priority %><br>
         <%= f.select :prioritet, options_for_select([ "Low", "Medium", "High", "Urgent" ], "Medium")%>
 
-        <%= f.submit "Kreiraj", class: "btn btn-primary" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
 
     <% end %>
   </div>

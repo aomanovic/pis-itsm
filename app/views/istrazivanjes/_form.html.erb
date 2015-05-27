@@ -14,19 +14,19 @@
         <% end %>
 
 
-        <%= f.label :klasa %> <br>
+        <%= f.label :Class %> <br>
         <%= f.text_field :klasa, class: 'form-control' %>
 
-        <%= f.label :komentar %><br>
+        <%= f.label :comment %><br>
         <%= f.text_area :komentar, class: 'form-control' %>
 
-        <%= f.label :Problem %><br>
+        <%= f.label :category %><br>
         <%= f.select :problem_id, options_from_collection_for_select(@problems, 'id', 'naziv'), class: 'form-control'%>
 
-        <%= f.label :potreban_zahtjev %>
+        <%= f.label :request_needed %>
         <%= f.check_box :potreban_zahtjev, class: 'form-control' %><br>
 
-        <%= f.submit "Kreiraj", class: "btn btn-primary" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
 
     <% end %>
   </div>

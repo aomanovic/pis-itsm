@@ -20,6 +20,8 @@ class RisksController < ApplicationController
 
   # GET /risks/1/edit
   def edit
+    @risk = Risk.find(params[:id])
+    @it_processes = ItProcess.all
   end
 
   # POST /risks

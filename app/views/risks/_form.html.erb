@@ -17,7 +17,7 @@
         <%= f.text_field :name, class: 'form-control' %>
 
         <%= f.label :description %>
-        <%= f.text_field :description, class: 'form-control' %>
+        <%= f.text_area :description, class: 'form-control' %>
 
         <%= f.label :possibility %>
         <%= f.number_field :possibility, class: 'form-control' %>
@@ -26,7 +26,7 @@
         <%= f.select :it_process_id, options_from_collection_for_select(@it_processes, 'id', 'name'), class: 'form-control'%>
 
 
-        <%= f.submit "Create risk", class: "btn btn-primary" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
   </div>
 </div>

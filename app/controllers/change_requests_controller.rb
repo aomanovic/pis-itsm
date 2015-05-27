@@ -14,12 +14,14 @@ class ChangeRequestsController < ApplicationController
 
   # GET /change_requests/new
   def new
-    @users = User.all
     @change_request = ChangeRequest.new
+    @change_request.user_id = current_user.id
   end
 
   # GET /change_requests/1/edit
   def edit
+    @change_request = ChangeRequest.find(params[:id])
+    @change_request.user_id = current_user.id
   end
 
   # POST /change_requests
