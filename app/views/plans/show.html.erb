@@ -15,5 +15,10 @@
   <%= @plan.estimation %>
 </p>
 
+<p>
+  <strong>Risk:</strong>
+  <%= @plan.risk.name %>
+</p>
+
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>

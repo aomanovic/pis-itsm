@@ -14,11 +14,14 @@ class PlansController < ApplicationController
 
   # GET /plans/new
   def new
+    @risks = Risk.all
     @plan = Plan.new
   end
 
   # GET /plans/1/edit
   def edit
+    plan = Plan.find(params[:id])
+    @risks = Risk.all
   end
 
   # POST /plans
@@ -69,6 +72,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:name, :steps, :estimation)
+      params.require(:plan).permit(:name, :steps, :estimation, :risk_id)
     end
 end

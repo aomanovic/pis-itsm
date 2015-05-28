@@ -9,6 +9,7 @@
       <th class="col-sm-3">Name</th>
       <th class="col-sm-3">Steps</th>
       <th class="col-sm-3">Estimation</th>
+      <th class="col-sm-3">Risk</th>
       <th class="col-sm-3" colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td class="col-sm-3"><%= plan.name %></td>
         <td class="col-sm-3"><%= plan.steps %></td>
         <td class="col-sm-3"><%= plan.estimation %></td>
+        <td class="col-sm-3"><%= plan.risk.name %></td>
         <td class="col-sm-1"><%= link_to 'Show', plan %></td>
         <td class="col-sm-1"><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td class="col-sm-1"><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

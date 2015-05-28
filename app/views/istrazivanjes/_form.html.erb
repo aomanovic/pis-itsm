@@ -20,7 +20,7 @@
         <%= f.label :comment %><br>
         <%= f.text_area :komentar, class: 'form-control' %>
 
-        <%= f.label :category %><br>
+        <%= f.label :problem %><br>
         <%= f.select :problem_id, options_from_collection_for_select(@problems, 'id', 'naziv'), class: 'form-control'%>
 
         <%= f.label :request_needed %>

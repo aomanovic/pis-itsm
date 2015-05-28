@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :plans
+
   resources :authorizations
 
   resources :change_evaluations

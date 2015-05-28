@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527192405) do
+ActiveRecord::Schema.define(version: 20150528123611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,11 +110,14 @@ ActiveRecord::Schema.define(version: 20150527192405) do
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
-    t.string   "steps"
-    t.string   "estimation"
+    t.text     "steps"
+    t.text     "estimation"
+    t.integer  "risk_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "plans", ["risk_id"], name: "index_plans_on_risk_id", using: :btree
 
   create_table "problems", force: :cascade do |t|
     t.string   "naziv"
@@ -165,5 +168,6 @@ ActiveRecord::Schema.define(version: 20150527192405) do
   add_foreign_key "change_requests", "users"
   add_foreign_key "istrazivanjes", "problems"
   add_foreign_key "it_processes", "business_processes"
+  add_foreign_key "plans", "risks"
   add_foreign_key "risks", "it_processes"
 end

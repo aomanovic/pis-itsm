@@ -24,7 +24,10 @@
     <%= f.label :estimation %>
     <%= f.text_field :estimation, class: 'form-control' %>
 
-    <%= f.submit "Create plan", class: "btn btn-primary" %>
+    <%= f.label :risk %><br>
+    <%= f.select :risk_id, options_from_collection_for_select(@risks, 'id', 'name'), class: 'form-control'%>
+
+    <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
 
   </div>
